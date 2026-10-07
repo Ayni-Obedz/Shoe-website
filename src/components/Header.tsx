@@ -26,6 +26,7 @@ function SearchBox({ className = '' }: { className?: string }) {
 export default function Header() {
   const [open, setOpen] = useState(false)
   const count = useCart((s) => s.items.reduce((n, i) => n + i.qty, 0))
+  const openCart = useCart((s) => s.openCart)
   const close = () => setOpen(false)
 
   return (
@@ -47,15 +48,17 @@ export default function Header() {
             <FiUser size={22} />
             <span className="hidden text-sm font-semibold sm:inline">Login</span>
           </Link>
-          <Link to="/cart" className="relative hover:text-red-600 transition-colors" aria-label={`Cart, ${count} items`}>
+          <button onClick={openCart} className="flex items-center gap-1.5 transition-colors hover:text-red-700" aria-label={`Open cart, ${count} items`}>
+            <span className="relative">
             <FiShoppingBag size={22} />
             {count > 0 && (
               <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-brand text-[11px] font-bold text-white">
                 {count}
               </span>
             )}
+            </span>
             <span className="hidden text-sm font-semibold sm:inline">Cart</span>
-          </Link>
+          </button>
         </div>
       </div>
 

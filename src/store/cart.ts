@@ -6,6 +6,9 @@ export type CartItem = { product: Product; size: number; qty: number }
 
 type CartState = {
   items: CartItem[]
+  open: boolean
+  openCart: () => void
+  closeCart: () => void
   add: (product: Product, size: number) => void
   remove: (id: string, size: number) => void
   setQty: (id: string, size: number, qty: number) => void
@@ -16,11 +19,18 @@ export const useCart = create<CartState>()(
   persist(
     (set) => ({
       items: [],
+      open: false,
+      openCart: () => set({ open: true }),
+      closeCart: () => set({ open: false }),
       add: (product, size) =>
         set((s) => {
           const found = s.items.find((i) => i.product.id === product.id && i.size === size)
-          if (found) return { items: s.items.map((i) => (i === found ? { ...i, qty: i.qty + 1 } : i)) }
-          return { items: [...s.items, { product, size, qty: 1 }] }
+          if (found)
+            return {
+              open: true,
+              items: s.items.map((i) => (i === found ? { ...i, qty: i.qty + 1 } : i)),
+            }
+          return { open: true, items: [...s.items, { product, size, qty: 1 }] }
         }),
       remove: (id, size) =>
         set((s) => ({ items: s.items.filter((i) => !(i.product.id === id && i.size === size)) })),
@@ -33,6 +43,6 @@ export const useCart = create<CartState>()(
         })),
       clear: () => set({ items: [] }),
     }),
-    { name: 'cart' },
+    { name: 'cart', partialize: (s) => ({ items: s.items }) },
   ),
 )
