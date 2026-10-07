@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FiChevronDown, FiMenu, FiSearch, FiShoppingBag, FiUser, FiX } from 'react-icons/fi'
+import { FiChevronDown, FiMenu, FiSearch, FiShoppingBag, FiUser, FiUserPlus, FiX } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { brand } from '../brand'
 import { categories } from '../data/categories'
@@ -16,7 +16,7 @@ function SearchBox({ className = '' }: { className?: string }) {
         aria-label="Search shoes"
         className="w-full rounded-l-full border border-r-0 border-neutral-300 px-5 py-2.5 text-sm outline-none focus:border-ink"
       />
-      <button className="rounded-r-full bg-ink px-5 text-white" aria-label="Search">
+      <button className="rounded-r-full bg-ink hover:text-red-700 px-5 text-white" aria-label="Search">
         <FiSearch />
       </button>
     </form>
@@ -39,16 +39,22 @@ export default function Header() {
         </Link>
         <SearchBox className="mx-6 hidden flex-1 md:flex" />
         <div className="ml-auto flex items-center gap-5">
-          <Link to="/account/login" aria-label="Account">
-            <FiUser size={22} />
+          <Link to="/account/signup" className="hover:text-sale transition-colors" aria-label="Sign up">
+          <FiUserPlus size={22} />
+          <span className="hidden text-sm font-semibold sm:inline">Sign up</span>
           </Link>
-          <Link to="/cart" className="relative" aria-label={`Cart, ${count} items`}>
+          <Link to="/account/login" className="hover:text-brand transition-colors" aria-label="Account">
+            <FiUser size={22} />
+            <span className="hidden text-sm font-semibold sm:inline">Login</span>
+          </Link>
+          <Link to="/cart" className="relative hover:text-red-600 transition-colors" aria-label={`Cart, ${count} items`}>
             <FiShoppingBag size={22} />
             {count > 0 && (
               <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-brand text-[11px] font-bold text-white">
                 {count}
               </span>
             )}
+            <span className="hidden text-sm font-semibold sm:inline">Cart</span>
           </Link>
         </div>
       </div>

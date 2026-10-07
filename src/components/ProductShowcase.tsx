@@ -3,9 +3,10 @@ import { products, type Tag } from '../data/products'
 import ProductCard from './ProductCard'
 import SectionHeading from './SectionHeading'
 
+//SHOP THE SHOWCASE
 const tabs: { key: Tag; label: string }[] = [
   { key: 'new', label: 'New arrivals' },
-  { key: 'best', label: 'Best sellers' },
+  // { key: 'best', label: 'Best sellers' },
   { key: 'sale', label: 'On sale' },
 ]
 

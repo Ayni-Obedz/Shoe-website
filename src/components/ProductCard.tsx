@@ -5,19 +5,15 @@ import type { Product } from '../data/products'
 import ImagePlaceholder from './ImagePlaceholder'
 
 export default function ProductCard({ product }: { product: Product }) {
-  const off = product.oldPrice ? Math.round((1 - product.price / product.oldPrice) * 100) : 0
   const category = categories.find((c) => c.slug === product.category)?.name
-
+  
   return (
     <Link to={`/product/${product.slug}`} className="group block focus-visible:outline-2 focus-visible:outline-brand">
-      <div className="relative aspect-[3/4] overflow-hidden bg-soft">
+      <div className="relative aspect-3/5 overflow-hidden bg-soft">
         {product.image ? (
           <img src={product.image} alt={product.name} className="h-full w-full object-cover" />
         ) : (
           <ImagePlaceholder className="h-full w-full" />
-        )}
-        {off > 0 && (
-          <span className="absolute left-3 top-3 bg-sale px-2 py-1 text-xs font-bold text-white">-{off}%</span>
         )}
         <span className="absolute inset-x-0 bottom-0 translate-y-full bg-ink py-3 text-center text-sm font-semibold text-white transition group-hover:translate-y-0 group-focus-visible:translate-y-0">
           View product
@@ -32,3 +28,8 @@ export default function ProductCard({ product }: { product: Product }) {
     </Link>
   )
 }
+
+// const off = product.oldPrice ? Math.round((1 - product.price / product.oldPrice) * 100) : 0
+{/* {off > 0 && (
+  <span className="absolute left-3 top-3 bg-sale px-2 py-1 text-xs font-bold text-white">-{off}%</span>
+)} */}

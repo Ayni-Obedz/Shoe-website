@@ -9,7 +9,7 @@ export default function TopBar() {
         <span className="hidden items-center gap-2 md:flex">
           <FiPhone aria-hidden /> {brand.phone}
         </span>
-        <p className="flex-1 text-center md:flex-none">Free delivery in Lagos on orders over ₦50,000</p>
+        <p className="flex-1 text-center md:flex-none">Delivery Services Available</p>
         <div className="hidden gap-5 md:flex">
           <Link to="/about" className="hover:underline">About</Link>
           <Link to="/contact" className="hover:underline">Contact</Link>

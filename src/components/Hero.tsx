@@ -3,8 +3,8 @@ import { FiChevronLeft, FiChevronRight, FiImage } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
 const slides = [
-  { title: 'The new season is here', text: 'Fresh sneakers, boots and formal pairs, in stock now.', cta: 'Shop new arrivals', to: '/shop?sort=new', bg: 'bg-ink' },
-  { title: 'Up to 15% off selected pairs', text: 'Prices drop on a rotating range of favourites.', cta: 'Shop the sale', to: '/shop?sale=1', bg: 'bg-brand' },
+  { title: 'Let\'s get the swaggu started', text: 'Fresh sneakers, boots and formal pairs, in stock now.', cta: 'Shop new arrivals', to: '/shop?sort=new', bg: 'bg-wine' },
+  { title: 'Negotiation avenues available', text: 'Prices drop can be discussed on our social media platforms.', cta: 'Shop the sale', to: '/shop?sale=1', bg: 'bg-brand' },
 ]
 
 export default function Hero() {
@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative h-[420px] overflow-hidden text-white md:h-[560px]"
+      className="relative h-200 overflow-hidden text-white md:h-200"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-roledescription="carousel"

@@ -1,7 +1,7 @@
 // One place for brand details. Replace these once the brand is decided.
 export const brand = {
-  name: 'STRIDE',
-  tagline: 'Walk your own way.',
+  name: 'E-Footwear',
+  tagline: 'Swaggu swa',
   phone: '+234 000 000 0000',
   email: 'hello@example.com',
   address: 'Lagos, Nigeria',

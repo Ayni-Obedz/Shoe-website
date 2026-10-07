@@ -13,10 +13,10 @@ export default function Collections() {
             <Link
               key={c.slug}
               to={`/shop/${c.slug}`}
-              className={`group relative block aspect-[3/4] overflow-hidden ${n === 4 ? 'col-span-2 aspect-[3/2] md:col-span-1 md:aspect-[3/4]' : ''}`}
+              className={`group relative block aspect-3/4 overflow-hidden ${n === 4 ? 'col-span-2 aspect-3/2 md:col-span-1 md:aspect-3/4' : ''}`}
             >
               <ImagePlaceholder className="h-full w-full bg-white" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-4 pt-12 text-white">
+              <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-ink/80 to-transparent p-4 pt-12 text-white">
                 <p className="text-lg font-bold">{c.name}</p>
                 <p className="text-sm text-white/80 group-hover:underline">Browse</p>
               </div>
