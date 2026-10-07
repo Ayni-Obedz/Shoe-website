@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Brand tokens: change colours here and the whole site follows. */
+@theme {
+  --color-brand: #2f54eb;
+  --color-ink: #0f1b2d;
+  --color-sale: #d92d20;
+  --color-soft: #f2f4f7;
+}
+
+body {
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
