@@ -30,13 +30,19 @@ export default function Header() {
   const close = () => setOpen(false)
 
   return (
-    <header className="sticky top-0 z-30 bg-white shadow-sm">
+    <header className="sticky top-0 z-30 bg-white [url(/)] shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3">
         <button className="lg:hidden" onClick={() => setOpen(true)} aria-label="Open menu">
           <FiMenu size={24} />
         </button>
-        <Link to="/" className="text-2xl font-black tracking-widest">
+        <Link to="/" className="flex items-center">
+        <img src={brand.logo}
+        alt={'${brand.name} logo'}
+        className= "h-20 w-30 object-contain"
+        />
+        <span className="text-2xl font-black tracking-tightest text-gold-dark">
           {brand.name}
+        </span>
         </Link>
         <SearchBox className="mx-6 hidden flex-1 md:flex" />
         <div className="ml-auto flex items-center gap-5">

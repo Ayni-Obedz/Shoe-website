@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Cart from './pages/Cart'
 import CartDrawer from './components/CartDrawer'
+// import { ColorBends } from '';
 import NotFound from './pages/NotFound'
 
 function Layout() {

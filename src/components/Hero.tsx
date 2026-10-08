@@ -3,8 +3,8 @@ import { FiChevronLeft, FiChevronRight, FiImage } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
 const slides = [
-  { title: 'Let\'s get the swaggu started', text: 'Fresh sneakers, boots and formal pairs, in stock now.', cta: 'Shop new arrivals', to: '/shop?sort=new', bg: 'bg-wine' },
-  { title: 'Negotiation avenues available', text: 'Prices drop can be discussed on our social media platforms.', cta: 'Shop the sale', to: '/shop?sale=1', bg: 'bg-brand' },
+  { title: 'Let\'s get the swaggu started', text: 'Fresh sneakers, boots and formal pairs, in stock now.', cta: 'Shop new arrivals', to: '/shop?sort=new', bg: 'bg-[url(/images/Zayswaggu.png)] bg-cover bg-center', image:'/images/Zayswaggu.png', imageAlt: 'Zay Swagg' },
+  { title: 'Negotiation avenues available', text: 'Prices drop can be discussed on our social media platforms.', cta: 'Shop the sale', to: '/shop?sale=1', bg: 'bg-[url(/images/Heroimg2.png)] bg-cover bg-center', image:'/images/Heroimg2.png', imageAlt: 'Hero Image 2' },
 ]
 
 export default function Hero() {
@@ -32,7 +32,8 @@ export default function Hero() {
           className={`absolute inset-0 transition-opacity duration-700 ${s.bg} ${n === i ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
           aria-hidden={n !== i}
         >
-          <div className="mx-auto grid h-full max-w-7xl items-center gap-8 px-4 md:grid-cols-2">
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="relative mx-auto grid h-full max-w-7xl items-center gap-8 px-4 md:grid-cols-2">
             <div>
               <h1 className="max-w-md text-4xl font-black leading-tight md:text-6xl">{s.title}</h1>
               <p className="mt-4 max-w-sm text-lg text-white/80">{s.text}</p>
@@ -40,8 +41,12 @@ export default function Hero() {
                 {s.cta}
               </Link>
             </div>
-            <div className="hidden h-4/5 items-center justify-center bg-white/10 text-white/30 md:flex">
-              <FiImage size={56} aria-hidden />
+            <div className="hidden h-4/5 items-center justify-center overflow-hidden rounded-2xl bg-white/10 text-white/30 md:flex">
+              {s.image ? (
+              <img src={s.image} alt={s.imageAlt} className="h-full w-full object-cover" />
+              ) : (
+              <FiImage size={64} />
+              )}
             </div>
           </div>
         </div>
